@@ -12,10 +12,10 @@ import os
 # ── CONFIG ────────────────────────────────────────────────────
 SCOPE       = ["https://www.googleapis.com/auth/spreadsheets",
                "https://www.googleapis.com/auth/drive"]
-CREDS_FILE  = "/Users/shivansh052k/Downloads/Emailer/mailautomation-473721-fbddf2c244a7.json"
+CREDS_FILE  = "/Users/shivansh052k/Downloads/Emailer/Emailer_manual/mailautomation-473721-fbddf2c244a7.json"
 GMAIL_USER  = "shivanshgupta323@gmail.com"
 GMAIL_PASS  = "idsu lzto jckp ywjb"
-RESUME_PATH = "/Users/shivansh052k/Downloads/Emailer/Shivansh_Gupta_Resume.pdf"
+RESUME_PATH = "/Users/shivansh052k/Downloads/Emailer/EmailerApp/Auto_Emailer_Application/Shivansh_Gupta_Resume.pdf"
 SENT_FILE   = "/Users/shivansh052k/Downloads/Emailer/EmailerApp/Auto_Emailer_Application/sent_emails.txt"
 
 SHEET_URL       = "https://docs.google.com/spreadsheets/d/1QwVDk4BFdWy_7wKKgBltnHBeMVz0pKclAGf-eSYalpQ/"
