@@ -211,3 +211,45 @@ def send_single_email(subject, html_body, recipient_email):
         server.send_message(msg)
 
     return message_id
+
+# ── MAIN RUN ──────────────────────────────────────────────────
+def run_emailer(log_callback=None):
+    def log(msg):
+        if log_callback:
+            log_callback(msg)
+        else:
+            print(msg)
+
+    sent_emails = load_sent_emails()
+    recipients  = build_recipients()
+    results     = []
+
+    for r in recipients:
+        email = r["email"]
+
+        if email in sent_emails:
+            log(f"⏩ Skipping {email} — already sent")
+            results.append({**r, "result": "skipped"})
+            continue
+
+        subject   = f"Application/Consideration for {r['status']} at {r['company']}"
+        html_body = EMAIL_BODY.format(
+            recipient_name  = r["name"],
+            company_name    = r["company"],
+            status          = r["status"],
+            internship_link = r["internship_link"],
+            position        = r["position"],
+            summary         = r["summary"],
+        )
+
+        try:
+            # email="spartangamingextreme@gmail.com"
+            message_id = send_single_email(subject, html_body, email)
+            mark_sent(email, message_id)
+            log(f"✅ Sent → {email} ({r['company']})")
+            results.append({**r, "result": "sent"})
+        except Exception as e:
+            log(f"❌ Failed → {email}: {e}")
+            results.append({**r, "result": f"failed: {e}"})
+
+    return results
