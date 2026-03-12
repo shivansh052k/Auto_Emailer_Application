@@ -219,7 +219,7 @@ def run_emailer(log_callback=None):
         )
 
         try:
-            # email="spartangamingextreme@gmail.com"
+            # email="saddy2410@gmail.com"
             message_id = send_single_email(subject, html_body, email)
             mark_sent(email, message_id)
             log(f"✅ Sent → {email} ({r['company']})")

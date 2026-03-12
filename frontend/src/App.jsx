@@ -13,7 +13,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <nav className="nav">
-        <div className="nav-logo">✉ Emailer</div>
+        <div className="nav-logo">✉ SlideIntoInboxes</div>
         <NavLink to="/">Recipients</NavLink>
         <NavLink to="/preview">Preview</NavLink>
         <NavLink to="/schedule">Run & Schedule</NavLink>
